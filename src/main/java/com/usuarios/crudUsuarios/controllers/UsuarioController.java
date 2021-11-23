@@ -30,6 +30,12 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorId(id);
     }
 
+    //Se recopila el email por vía query, para luego buscar en la base de datos un email igual al que ingresó
+    @GetMapping("/")
+    public Optional<UsuarioModel> obtenerUsuarioPorEmail(@RequestParam("email") String email){
+        return this.usuarioService.obtenerPorEmail(email);
+    }
+
     @GetMapping("/query")
     public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
         return this.usuarioService.obtenerPorPrioridad(prioridad);
