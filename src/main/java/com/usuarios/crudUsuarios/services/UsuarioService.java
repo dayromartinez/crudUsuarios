@@ -22,6 +22,16 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    //A través de esta función se modifica cualquier atributo del usuario
+    public UsuarioModel putAtributosUsuario(UsuarioModel usuario){
+
+        boolean match = usuarioRepository.existsById(usuario.getId());
+        if(match){
+            return usuarioRepository.save(usuario);
+        }
+        return null;
+    }
+
     public Optional<UsuarioModel> obtenerPorId(long id){
         return usuarioRepository.findById(id);
     }

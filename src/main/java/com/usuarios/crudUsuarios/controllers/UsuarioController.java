@@ -41,6 +41,12 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
 
+    //Para este caso, se piden los datos del modelo de usuario por body. Si el id coincide se modifican los datos
+    @PutMapping()
+    public UsuarioModel modificarUsuario(@RequestBody UsuarioModel usuario){
+        return this.usuarioService.putAtributosUsuario(usuario);
+    }
+
     @DeleteMapping(path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
 
