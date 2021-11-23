@@ -57,4 +57,10 @@ public class UsuarioController {
             return "No se encontró al usuario con id: "+ id;
         }
     }
+
+    //En este caso se iguala a null la propiedad del usuario especificado por ID
+    @DeleteMapping()
+    public UsuarioModel quitarPrioridadUsuario(@RequestBody UsuarioModel usuario){
+        return this.usuarioService.eliminarPrioridadUsuario(usuario);
+    }
 }

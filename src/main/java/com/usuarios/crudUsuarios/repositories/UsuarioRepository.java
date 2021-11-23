@@ -14,4 +14,5 @@ public interface UsuarioRepository  extends CrudRepository<UsuarioModel, Long> {
 
     //Se define un método de búsqueda de usuarios adicional, en este caso por email.
     public abstract Optional<UsuarioModel> findByEmail(String email);
+
 }

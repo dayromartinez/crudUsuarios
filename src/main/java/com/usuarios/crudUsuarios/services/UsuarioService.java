@@ -44,6 +44,15 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
+    //Se define un método de eliminación del atributo prioridad del usuario especificado
+    public UsuarioModel eliminarPrioridadUsuario(UsuarioModel usuario){
+        if(usuarioRepository.existsById(usuario.getId())){
+            usuario.setPrioridad(null);
+            return usuarioRepository.save(usuario);
+        }
+        return null;
+    }
+
     public boolean eliminarUsuario(Long id){
         try {
             usuarioRepository.deleteById(id);
